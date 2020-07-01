@@ -1,0 +1,43 @@
+{% extends "/layouts/main.html" %}
+
+{% block body %}
+                
+<form method="POST" action="/edit">
+    <div class="form-group">
+      <p class="text">Title: {{ data['title'] }}</p>
+      <label for="titleInput">Enter a new title</label>
+      <input type="text" class="form-control" id="titleInput" name="titleInput">
+    </div>
+    <div class="form-group">
+        <p class="text">type: {{ data['type'] }}</p>
+        <label for="typeInput">Enter a new type</label>
+        <select class="form-control" type="text" id="typeInput" name="typeInput">
+            <option>house</option>
+            <option>room</option>
+            <option>hostal</option>            
+          </select>
+    </div>
+    <div class="form-group">
+        <p class="text">Address: {{ data['address'] }}</p>
+        <label for="addressInput">Enter a new address</label>
+        <input type="text" class="form-control" id="addressInput" name="addressInput">
+    </div>
+    <div class="form-group">
+        <p class="text">Rooms: {{ data['rooms'] }}</p>
+        <label for="roomInput">Rooms</label>
+        <input type="number" class="form-control" id="roomInput" name="roomInput">
+    </div>
+    <div class="form-group">
+        <p class="text">Price: {{ data['price'] }}</p>
+        <label for="priceInput">Price</label>
+        <input type="number" class="form-control" id="priceInput" name="priceInput">
+    </div>
+    <div class="form-group">
+        <p class="text">Area: {{ data['area'] }}</p>
+        <label for="areaInput">Enter a new area</label>
+        <input type="text" class="form-control" id="areaInput" name="areaInput">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

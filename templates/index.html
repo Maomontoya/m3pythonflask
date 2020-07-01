@@ -1,0 +1,36 @@
+{% extends "/layouts/main.html" %}
+
+{% block body %}
+                
+        <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Type</th>
+                <th scope="col">Address</th>
+                <th scope="col">Rooms</th> 
+                <th scope="col">Price</th>
+                <th scope="col">Area</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for data in _data %}
+              <tr>
+                <th scope="row">{{ data['_id'] }}</th>  
+                <td>{{ data['title'] }}</td>
+                <td>{{ data['type'] }}</td>
+                <td>{{ data['address'] }}</td>
+                <td>{{ data['rooms'] }}</td> 
+                <td>{{ data['price'] }}</td>
+                <td>{{ data['area'] }}</td>
+                <td><a href="/view/{{ data['_id'] }}" class="btn btn-info">View</a> <a href="/delete/{{ data['_id'] }}" class="btn btn-danger">Delete</a> 
+                  <a href="/update/{{ data['_id'] }}" class="btn btn-info">Update</a></td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+
+{% endblock %}
+    
