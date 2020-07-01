@@ -1,3 +1,4 @@
-#Python debe estar instalado.
 
-#Python app.py para inicializar el proyecto.
+#Python must be installed.
+
+#Python app.py to initialize the project.
