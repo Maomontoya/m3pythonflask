@@ -2,7 +2,9 @@
 
 {% block body %}
 
-<form method="POST" action="/register">
+<form method="POST" action="/register" >
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    </head>
     <div class="form-group">
       <label for="exampleInputEmail1">Please enter a email address</label>
       <input type="email" class="form-control" id="email" name="email">
@@ -11,7 +13,7 @@
       <label for="exampleInputPassword1">Enter a password</label>
       <input type="password" class="form-control" id="password" name="password">
     </div>
-    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" class="btn btn-info">Register</button>
   </form>
 
 {% endblock %}

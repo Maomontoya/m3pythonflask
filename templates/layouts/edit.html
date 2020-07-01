@@ -1,7 +1,7 @@
 {% extends "/layouts/main.html" %}
 
 {% block body %}
-
+<div class="container" style="width: 380px;height: 800px;background-color: #cfd8dc; border-radius: 10px;">
 <form method="POST" action="/edit">
     <div class="form-group">
       <p class="text">Title: {{ data['title'] }}</p>
@@ -39,5 +39,6 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+</div>
 
 {% endblock %}
