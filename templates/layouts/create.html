@@ -2,6 +2,7 @@
 
 {% block body %}
 
+<div class="container" style="width: 380px;height: 600px;background-color: #cfd8dc; border-radius: 10px;">
 <form method="POST" action="/save">
     <div class="form-group">
       <label for="titleInput">Enter a title</label>
@@ -31,7 +32,8 @@
         <label for="areaInput">Enter a area</label>
         <input type="text" class="form-control" id="areaInput" name="areaInput">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-info" style="box-shadow: darkgray;">Submit</button>
 </form>
+</div>
 
 {% endblock %}
