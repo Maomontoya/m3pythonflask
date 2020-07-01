@@ -1,14 +1,14 @@
 class Estate():
 
-    def __init__(self, title, type_, address, rooms, price, area):
+    def __init__(self, title, type_, address, rooms, price, area, owner):
         self.title = title
         self.type = type_
         self.address = address
         self.rooms = rooms
         self.price = price
         self.area = area
+        self.owner = owner
 
-    
     def get_title(self):
         return self.title
 
@@ -27,6 +27,9 @@ class Estate():
     def get_area(self):
         return self.area
 
+    def get_owner(self):
+        return self.owner
+
     def set_title(self, title):
         self.title = title
 
@@ -35,7 +38,7 @@ class Estate():
 
     def set_address(self, address):
         self.address = address
-    
+
     def set_rooms(self, rooms):
         self.rooms = rooms
 
@@ -44,3 +47,6 @@ class Estate():
 
     def set_area(self, area):
         self.area = area
+
+    def set_owner(self, owner):
+        self.owner = owner
