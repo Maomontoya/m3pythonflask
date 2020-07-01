@@ -10,7 +10,7 @@ def session_validate():
     if 'login' in session:
         return True
     else:
-        return False 
+        return False
 
 @app.route('/')
 def index():
@@ -22,10 +22,10 @@ def register():
 
 @app.route('/save', methods=['POST'])
 def save():
-    
+
     if request.method == 'POST':
         try:
-            
+
             titleInput = request.form['titleInput']
             typeInput = request.form['typeInput']
             addressInput = request.form['addressInput']
@@ -35,26 +35,25 @@ def save():
             estate = Estate(title=titleInput,type_=typeInput,
                      address=addressInput,rooms=int(roomInput),
                      price=int(priceInput),area=areaInput)
-            
+
             res = RequestsApi.get_save(estate)
-            print(res)   
-            
+            print(res)
+
             return redirect(url_for('listed'))
 
         except:
-            
-            return "Not Saved"    
+
+            return "Not Saved"
 
 @app.route('/create')
 def create():
     return render_template('/layouts/create.html')
-    
 
 @app.route('/edit', methods=['PUT'])
 def edit():
     if request.method == 'PUT':
         try:
-            
+
             titleInput = request.form['titleInput']
             typeInput = request.form['typeInput']
             addressInput = request.form['addressInput']
@@ -64,37 +63,35 @@ def edit():
             estate = Estate(title=titleInput,type_=typeInput,
                      address=addressInput,rooms=int(roomInput),
                      price=int(priceInput),area=areaInput)
-            
+
             res = RequestsApi.update_api(estate)
-            print(res)   
-            
+            print(res)
+
             return redirect(url_for('listed'))
 
         except:
-            
+
             return "Update Not complete"
 
 @app.route('/update/<id>')
 def update(id):
     res = RequestsApi.single_update(id)
-    return render_template('/layouts/edit.html', data = res['res']['data'])    
+    return render_template('/layouts/edit.html', data = res['res']['data'])
 
 @app.route('/view/<id>')
 def view(id):
-    res = RequestsApi.get_single(id)    
+    res = RequestsApi.get_single(id)
     return render_template('/layouts/view.html', data = res['res']['data'])
 
 @app.route('/listed')
-def listed():    
+def listed():
     res = RequestsApi.get_all()
-    #print(res['res']['data'])
     return render_template('/index.html', _data = res['res']['data'])
-    
+
 
 @app.route('/delete/<id>')
 def delete(id):
-    res = RequestsApi.delete_api(id)    
-    #return res
+    res = RequestsApi.delete_api(id)
     return redirect(url_for('listed'))
 
 

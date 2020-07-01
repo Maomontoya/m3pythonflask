@@ -8,7 +8,6 @@ class Estate():
         self.price = price
         self.area = area
 
-    
     def get_title(self):
         return self.title
 
@@ -35,7 +34,7 @@ class Estate():
 
     def set_address(self, address):
         self.address = address
-    
+
     def set_rooms(self, rooms):
         self.rooms = rooms
 
