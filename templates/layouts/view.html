@@ -12,11 +12,11 @@
                   <p class="list-group-item" style="height: 40px; border-radius: 5px;">Address: {{ data['address'] }}</p>
                   <p class="list-group-item" style="height: 40px; border-radius: 5px;">Rooms: {{ data['rooms'] }}</p> 
                   <p class="list-group-item" style="height: 40px; border-radius: 5px;">Price: {{ data['price'] }}</p>
-                  <a href="/listed" class="btn btn-danger">Go back</a>
+                  <a href="/listed/{{ session['username'] }}" class="btn btn-danger">Go back</a>
                 </div>
               </div>
            </div> 
        </div> 
-      </div>
+  </div>
 
 {% endblock %}

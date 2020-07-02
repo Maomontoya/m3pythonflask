@@ -33,17 +33,21 @@
           </table> -->
           <div class="container">
             <div class="row">
-                <div class="col-4 offset-4">
-                 <div class="card" style="width: 400px; background-color: #e0f2f1;">
-                     <img src="https://descubreteviajando.com/wp-content/uploads/2016/09/001.jpg" class="card-img-top" alt="...">
-                     <div class="card-body" style="width: 390px;"> 
-                      {% for data in _data %}
-                       <p class="list-group-item">Title: {{ data['title'] }}</p>                       
-                       <p class="list-group-item">Price: {{ data['price'] }}</p>
-                       {% endfor %}                       
-                     </div>
-                   </div>
-                </div> 
+                {% for data in _data %}
+                    <div class="col-4">
+                        <div class="card" style="width: 400px; background-color: #e0f2f1;">
+                            <img src="https://descubreteviajando.com/wp-content/uploads/2016/09/001.jpg" class="card-img-top" alt="...">
+                            <div class="card-body" style="width: 390px;">
+                                                    
+                            <p class="list-group-item">ID: {{ data['_id'] }}</p>
+                            <p class="list-group-item">Title: {{ data['title'] }}</p>                       
+                            <p class="list-group-item">Price: {{ data['price'] }}</p>
+                            <a href="/view/{{ data['_id'] }}" class="btn btn-success">View</a> <a href="/delete/{{ data['_id'] }}" class="btn btn-danger">Delete</a>
+                            <a href="/update/{{ data['_id'] }}" class="btn btn-warning">Update</a>                        
+                            </div>
+                        </div>
+                    </div> 
+                {% endfor %}                                         
             </div> 
        </div>
 

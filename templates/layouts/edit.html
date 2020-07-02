@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="container" style="width: 380px;height: 800px;background-color: #cfd8dc; border-radius: 10px;">
-<form method="POST" action="/edit">
+<form method="POST" action="/update/{{data['_id']}}">
     <div class="form-group">
       <p class="text">Title: {{ data['title'] }}</p>
       <label for="titleInput">Enter a new title</label>

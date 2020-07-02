@@ -3,17 +3,22 @@
 {% block body %}
 
 <form method="POST" action="/register" >
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    </head>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Please enter a email address</label>
-      <input type="email" class="form-control" id="email" name="email">
+  <div class="col-4 offset-4">
+    <div class="card" style="width: 400px; background-color: #e0f2f1;">
+      <img src="https://images.contentstack.io/v3/assets/bltb428ce5d46f8efd8/blt658bec41bb26fbcc/5e72666ea833ab066c0f103e/BeloRauschBG.png" class="card-img-top" alt="...">
+      <div class="form-group">
+        <h1>Sign-Up</h1>
+        <br>        
+        <label for="exampleInputEmail1">Please enter a email address</label>
+        <input type="email" class="form-control" id="email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Enter a password</label>
+        <input type="password" class="form-control" id="password" name="password">
+      </div>
+      <button type="submit" class="btn btn-info">Register</button>
     </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Enter a password</label>
-      <input type="password" class="form-control" id="password" name="password">
-    </div>
-    <button type="submit" class="btn btn-info">Register</button>
+  </div>
   </form>
 
 {% endblock %}
