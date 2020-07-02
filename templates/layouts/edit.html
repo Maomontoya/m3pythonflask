@@ -1,44 +1,49 @@
 {% extends "/layouts/main.html" %}
 
 {% block body %}
-<div class="container" style="width: 380px;height: 800px;background-color: #cfd8dc; border-radius: 10px;">
-<form method="POST" action="/update/{{data['_id']}}">
-    <div class="form-group">
-        <p class="text">Title: {{ data['title'] }}</p>
-        <label for="titleInput">Enter a new title</label>
-        <input type="text" class="form-control" id="titleInput" name="titleInput">
-    </div>
-    <div class="form-group">
-        <p class="text">type: {{ data['type'] }}</p>
-        <label for="typeInput">Enter a new type</label>
-        <select class="form-control" type="text" id="typeInput" name="typeInput">
-            <option>house</option>
-            <option>room</option>
-            <option>hostal</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <p class="text">Address: {{ data['address'] }}</p>
-        <label for="addressInput">Enter a new address</label>
-        <input type="text" class="form-control" id="addressInput" name="addressInput">
-    </div>
-    <div class="form-group">
-        <p class="text">Rooms: {{ data['rooms'] }}</p>
-        <label for="roomInput">Rooms</label>
-        <input type="number" class="form-control" id="roomInput" name="roomInput">
-    </div>
-    <div class="form-group">
-        <p class="text">Price: {{ data['price'] }}</p>
-        <label for="priceInput">Price</label>
-        <input type="number" class="form-control" id="priceInput" name="priceInput">
-    </div>
-    <div class="form-group">
-        <p class="text">Area: {{ data['area'] }}</p>
-        <label for="areaInput">Enter a new area</label>
-        <input type="text" class="form-control" id="areaInput" name="areaInput">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<div class="container" style="margin-top: 10px;">
+    <form method="POST" action="/update/{{data['_id']}}">
+        <div class="col-4 offset-4">
+            <div class="card" style="width: 400px; background-color: #e0f2f1;">
+                <img src="https://images.contentstack.io/v3/assets/bltb428ce5d46f8efd8/blt658bec41bb26fbcc/5e72666ea833ab066c0f103e/BeloRauschBG.png" class="card-img-top" alt="...">
+                <div class="form-group">
+                    <p class="text">Title: {{ data['title'] }}</p>
+                    <label for="titleInput">Enter a new title</label>
+                    <input type="text" class="form-control" id="titleInput" name="titleInput">
+                </div>
+                <div class="form-group">
+                    <p class="text">Type: {{ data['type'] }}</p>
+                    <label for="typeInput">Enter a new type</label>
+                    <select class="form-control" type="text" id="typeInput" name="typeInput">
+                        <option>house</option>
+                        <option>room</option>
+                        <option>hostal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p class="text">Address: {{ data['address'] }}</p>
+                    <label for="addressInput">Enter a new address</label>
+                    <input type="text" class="form-control" id="addressInput" name="addressInput">
+                </div>
+                <div class="form-group">
+                    <p class="text">Rooms: {{ data['rooms'] }}</p>
+                    <label for="roomInput">Rooms</label>
+                    <input type="number" class="form-control" id="roomInput" name="roomInput">
+                </div>
+                <div class="form-group">
+                    <p class="text">Price: {{ data['price'] }}</p>
+                    <label for="priceInput">Price</label>
+                    <input type="number" class="form-control" id="priceInput" name="priceInput">
+                </div>
+                <div class="form-group">
+                    <p class="text">Area: {{ data['area'] }}</p>
+                    <label for="areaInput">Enter a new area</label>
+                    <input type="text" class="form-control" id="areaInput" name="areaInput">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
 </div>
 
 {% endblock %}

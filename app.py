@@ -29,7 +29,7 @@ def login():
         session['username'] = res['res']['data']['key']
         return redirect(url_for('listed_by_user', user=session['username']))
     except:
-        return "false"
+        return "Enter a valid username and password"
 
 @app.route('/logout')
 def logout():
@@ -125,7 +125,7 @@ def delete(id):
     if session_validate() == False:
         redirect(url_for('index'))
     RequestsApi.delete_api(id)
-    return redirect(url_for('listed'))
+    return redirect(url_for('listed_by_user', user=session['username']))
 
 if __name__ == '__main__':
     app.run(port=8081, debug=True)
