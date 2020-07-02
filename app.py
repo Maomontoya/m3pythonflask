@@ -1,4 +1,5 @@
 import requests
+import random
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from api.requests_api import RequestsApi
 from models.Estates import Estate
@@ -51,10 +52,8 @@ def register():
 def save():
     if session_validate() == False:
         redirect(url_for('index'))
-
     if request.method == 'POST':
         try:
-
             titleInput = request.form['titleInput']
             typeInput = request.form['typeInput']
             addressInput = request.form['addressInput']
@@ -65,14 +64,9 @@ def save():
             estate = Estate(title=titleInput,type_=typeInput,
                      address=addressInput,rooms=int(roomInput),
                      price=int(priceInput),area=areaInput,owner=owner)
-
-            res = RequestsApi.get_save(estate)
-            print(res)
-
+            RequestsApi.get_save(estate)
             return redirect(url_for('listed_by_user', user=session['username']))
-
         except:
-
             return "Not Saved"
 
 @app.route('/create')
@@ -81,77 +75,49 @@ def create():
         return redirect(url_for('index'))
     return render_template('/layouts/create.html')
 
-@app.route('/edit', methods=['POST'])
-def edit():
-    if session_validate() == False:
-        redirect(url_for('index'))
-    if request.method == 'POST':
-       
-
-            titleInput = request.form['titleInput']
-            typeInput = request.form['typeInput']
-            addressInput = request.form['addressInput']
-            roomInput = request.form['roomInput']
-            priceInput = request.form['priceInput']
-            areaInput = request.form['areaInput']
-            owner = session['username']
-            estate = Estate(title=titleInput,type_=typeInput,
-                     address=addressInput,rooms=int(roomInput),
-                     price=int(priceInput),area=areaInput,owner=owner)
-
-            res = RequestsApi.update_api(estate)
-            print(res)
-
-            return redirect(url_for('/listed/'+session['username']))
-
-        
-
 @app.route('/update/<id>', methods=['POST','GET'])
 def update(id):
     if session_validate() == False:
         redirect(url_for('index'))
     if request.method == 'POST':
-       
-
-            titleInput = request.form['titleInput']
-            typeInput = request.form['typeInput']
-            addressInput = request.form['addressInput']
-            roomInput = request.form['roomInput']
-            priceInput = request.form['priceInput']
-            areaInput = request.form['areaInput']
-            owner = session['username']
-            estate = Estate(title=titleInput,type_=typeInput,
-                     address=addressInput,rooms=int(roomInput),
-                     price=int(priceInput),area=areaInput,owner=owner)
-
-            RequestsApi.update_api(id, estate)
-            
-
-            return redirect(url_for('/listed/'+session['username']))
-
+        titleInput = request.form['titleInput']
+        typeInput = request.form['typeInput']
+        addressInput = request.form['addressInput']
+        roomInput = request.form['roomInput']
+        priceInput = request.form['priceInput']
+        areaInput = request.form['areaInput']
+        owner = session['username']
+        estate = Estate(title=titleInput,type_=typeInput,
+                    address=addressInput,rooms=int(roomInput),
+                    price=int(priceInput),area=areaInput,owner=owner)
+        RequestsApi.update_api(id, estate)
+        return redirect(url_for('listed_by_user', user=session['username']))
     elif request.method == 'GET':
-
         res = RequestsApi.single_update(id)
-        print(res['res']['data'])
-
         return render_template('/layouts/edit.html', data = res['res']['data'])
 
 @app.route('/view/<id>')
-def view(id):         
+def view(id):
     res = RequestsApi.get_single(id)
     return render_template('/layouts/view.html', data = res['res']['data'])
 
 @app.route('/listed')
 def listed():
     res = RequestsApi.get_all()
-    return render_template('/index.html', _data = res['res']['data'])
+    data = res['res']['data']
+    for d in data:
+        d['lala'] = random.randint(1,9)
+    return render_template('/index.html', _data = data)
 
 @app.route('/listed/<user>')
 def listed_by_user(user):
     if session_validate() == False:
         redirect(url_for('index'))
     res = RequestsApi.get_by_user(user)
-    return render_template('/layouts/indexuser.html', _data = res['res']['data'])
+    data = res['res']['data']
+    for d in data:
+        d['lala'] = random.randint(1,9)
+    return render_template('/layouts/indexuser.html', _data = data)
 
 
 @app.route('/delete/<id>')
@@ -160,8 +126,6 @@ def delete(id):
         redirect(url_for('index'))
     RequestsApi.delete_api(id)
     return redirect(url_for('listed'))
-
-
 
 if __name__ == '__main__':
     app.run(port=8081, debug=True)

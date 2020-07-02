@@ -72,9 +72,6 @@ class RequestsApi:
 
     @staticmethod
     def update_api(id, estate):
-
-            data = {"title":estate.get_title(),"type":estate.get_type(),"address":estate.get_address(),"rooms":estate.get_rooms(),"price":estate.get_price(),"area":estate.get_area(),"owner":estate.get_owner()}
-            res = requests.request("POST", RequestsApi.url + "/estates/update/" + id, data=data)
-            print(res)
-            return res.json()
-        
+        data = {"title":estate.get_title(),"type":estate.get_type(),"address":estate.get_address(),"rooms":estate.get_rooms(),"price":estate.get_price(),"area":estate.get_area(),"owner":estate.get_owner()}
+        res = requests.request("POST", RequestsApi.url + "/estates/update/" + id, data=data)
+        return res.json()

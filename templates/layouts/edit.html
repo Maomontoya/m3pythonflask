@@ -4,9 +4,9 @@
 <div class="container" style="width: 380px;height: 800px;background-color: #cfd8dc; border-radius: 10px;">
 <form method="POST" action="/update/{{data['_id']}}">
     <div class="form-group">
-      <p class="text">Title: {{ data['title'] }}</p>
-      <label for="titleInput">Enter a new title</label>
-      <input type="text" class="form-control" id="titleInput" name="titleInput">
+        <p class="text">Title: {{ data['title'] }}</p>
+        <label for="titleInput">Enter a new title</label>
+        <input type="text" class="form-control" id="titleInput" name="titleInput">
     </div>
     <div class="form-group">
         <p class="text">type: {{ data['type'] }}</p>
@@ -15,7 +15,7 @@
             <option>house</option>
             <option>room</option>
             <option>hostal</option>
-          </select>
+        </select>
     </div>
     <div class="form-group">
         <p class="text">Address: {{ data['address'] }}</p>
