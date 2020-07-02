@@ -2,21 +2,21 @@
 
 {% block body %}
 <div class="container">
-       <div class="row">
-           <div class="col-4 offset-4">
-            <div class="card" style="width: 400px; background-color: #e0f2f1;">
-                <img src="https://descubreteviajando.com/wp-content/uploads/2016/09/001.jpg" class="card-img-top" alt="...">
-                <div class="card-body" style="width: 390px;"> 
-                  <h5 class="card-subtitle mb-2 text-muted" >ID {{ data['_id'] }}</h5>
-                  <p class="list-group-item" style="height: 40px; border-radius: 5px;">Type: {{ data['type'] }}</p>
-                  <p class="list-group-item" style="height: 40px; border-radius: 5px;">Address: {{ data['address'] }}</p>
-                  <p class="list-group-item" style="height: 40px; border-radius: 5px;">Rooms: {{ data['rooms'] }}</p> 
-                  <p class="list-group-item" style="height: 40px; border-radius: 5px;">Price: {{ data['price'] }}</p>
-                  <a href="/listed/{{ session['username'] }}" class="btn btn-danger">Go back</a>
-                </div>
-              </div>
-           </div> 
-       </div> 
-  </div>
+    <div class="row">
+        <div class="col-4 offset-4">
+        <div class="card" style="width: 400px; background-color: #e0f2f1;">
+            <img src="https://descubreteviajando.com/wp-content/uploads/2016/09/001.jpg" class="card-img-top" alt="...">
+            <div class="card-body" style="width: 390px;">
+                <h5 class="card-subtitle mb-2 text-muted" >ID {{ data['_id'] }}</h5>
+                <p class="list-group-item" style="height: 40px; border-radius: 5px;">Type: {{ data['type'] }}</p>
+                <p class="list-group-item" style="height: 40px; border-radius: 5px;">Address: {{ data['address'] }}</p>
+                <p class="list-group-item" style="height: 40px; border-radius: 5px;">Rooms: {{ data['rooms'] }}</p>
+                <p class="list-group-item" style="height: 40px; border-radius: 5px;">Price: {{ data['price'] }}</p>
+                <a href="/listed/{{ session['username'] }}" class="btn btn-danger">Go back</a>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
